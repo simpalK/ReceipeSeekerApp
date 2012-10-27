@@ -2,9 +2,10 @@
 <classpath>
 	<classpathentry excluding="views/**" kind="src" path="app"/>
 	<classpathentry kind="src" path="test"/>
-	
+	<classpathentry kind="src" path="fbconnect-head"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/simpal/play-1.2.1/framework/play-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/home/simpal/play-1.2.1/modules/fbconnect-head/lib/play-fbconnect.jar"/>
 	<classpathentry kind="lib" path="/home/simpal/play-1.2.1/framework/lib/groovy-all-1.7.7.jar"/>
 	<classpathentry kind="lib" path="/home/simpal/play-1.2.1/framework/lib/javax.inject-1.0.jar"/>
 	<classpathentry kind="lib" path="/home/simpal/play-1.2.1/framework/lib/org.eclipse.jdt.core-3.6.0.jar"/>
