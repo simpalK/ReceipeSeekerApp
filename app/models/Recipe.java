@@ -36,10 +36,10 @@ import play.db.jpa.Model;
 @Table(name="Recipe")
 public class Recipe extends Model{
 	@Required
-	private String nameRec;
+	public String nameRec;
 	
 	@Required
-	private String description;
+	public String description;
 	
 	@Required
 	public User owner;
@@ -53,7 +53,7 @@ public class Recipe extends Model{
 	@Required
 	public Integer rating;
 	
-	@Required 
+	
 	public String link;
 
 	@Required
@@ -62,7 +62,7 @@ public class Recipe extends Model{
 	
 	
 
-	public Recipe(String name, String des, User own, Integer like, String award, Integer rate, String link,List<RecIngredient> recIng)
+	public Recipe(String name, String des, User own, Integer like, String award, Integer rate, String link)
 	{
 		this.nameRec = name;
 		this.description = des;
@@ -70,7 +70,7 @@ public class Recipe extends Model{
 		this.likes = 0;
 		this.award= "no";
 		this.link = link;
-		this.listOfIng.addAll(recIng);
+		this.listOfIng= new ArrayList<RecIngredient>();
 		
 	}
 	
@@ -111,5 +111,9 @@ public class Recipe extends Model{
     		query.setParameter(1, rec.owner);	
 		return (User) query.getSingleResult();
 		
+	}
+	public void addIngredients(List recIngredient)
+	{
+		this.listOfIng.addAll(recIngredient);
 	}
 }

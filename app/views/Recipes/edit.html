@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Edit Recipe'/}
+#{set 'moreStyles'}
+	<link rel="stylesheet" href="@{'/public/stylesheets/recipe.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+
+<h2 class="title">Edit Recipe</h2>
+#{ifErrors}
+	<span class="error">
+		Oops...
+		<ul>
+		#{errors}
+ 		<li>${error}</li>
+		#{/errors}
+		</ul>
+</span>
+#{/ifErrors}
+<div id="recipe-form">
+#{form @Recipes.update(recipe.id)}
+	#{recipe-form recipe:recipe /}
+#{/form}
+</div>

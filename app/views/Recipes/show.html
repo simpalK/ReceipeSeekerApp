@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:'Recipes'/}
+#{set 'moreStyles'}
+	<link rel="stylesheet" href="@{'/public/stylesheets/recipe.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+
+#{set 'options'}
+	<li><a class="navigation" href="@{Recipes.add()}">Add a recipe</a></li>
+	<li><a class="navigation" href="@{Recipes.edit(recipe.id)}">Edit this recipe</a></li>
+	<li><a href="@{Recipes.delete(recipe.id)}">Delete this recipe</a></li>
+#{/set}	
+
+<h2 class="title">Infos about this Recipe</h2>
+ <div id="recipe">
+	<p>
+		<ul>
+			<li>${recipe.nameIng} ${recipe.unit}</li>
+			
+		</ul>
+	</p>
+</div>

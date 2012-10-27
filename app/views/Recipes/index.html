@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title: 'Recipes'}
+	<link rel="stylesheet" href="@{'/public/stylesheets/recipe.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+
+
+<div id="recipe-list">
+	<h2 class="title">
+		Recipes
+	</h2>
+	#{if recipes.size() > 0}
+		<ul>
+			#{list items:recipes, as:'recipe'}
+				<li><a href="@{Recipes.show(recipe.id)}">${recipe.toString()}</a>
+					<span class="recipe-metadata"> - used by private</span>
+				</li>
+			#{/list}
+		</ul>
+	#{/if}
+	#{else}
+		<div class="empty">
+	       	There are no recipes.
+	   	</div>
+	#{/else}
+</div>

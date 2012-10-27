@@ -1,0 +1,24 @@
+<p>
+#{field 'nameIng'}
+   	<label for="name">Ingredient Name</label>
+    <input type="text" name="${field.name}" id="nameIng" autofocus="autofocus" value="#{ifErrors}${flash.nameIng}#{/ifErrors}#{else}${_ingredient?.nameIng}#{/else}"/>
+#{/field}
+</p>
+<p>
+#{field 'unit'}
+<label for="name">Unit</label>
+<p>
+<input type="radio" name="${field.name}" id="unit" value="kg">Kilogram <br/>
+<input type="radio" name="${field.name}" id="unit" value="lt">Liters <br/>
+<input type="radio" name="${field.name}" id="unit" value="number">Number <br/>
+</p>
+#{/field}
+</p>
+
+
+<p class="button">
+	<input type="submit" value="Add your ingredient" />
+</p>
+<p class="button">
+	<input type="reset" value="Reset" />
+</p>

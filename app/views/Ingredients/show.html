@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:'Ingredients'/}
+#{set 'moreStyles'}
+	<link rel="stylesheet" href="@{'/public/stylesheets/ingredient.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+
+#{set 'options'}
+	<li><a class="navigation" href="@{Ingredients.add()}">Add an ingredient</a></li>
+	<li><a class="navigation" href="@{Ingredients.edit(ingredient.id)}">Edit this ingredient</a></li>
+	<li><a href="@{Ingredients.delete(ingredient.id)}">Delete this ingredient</a></li>
+#{/set}	
+
+<h2 class="title">Infos about this Ingredient</h2>
+ <div id="ingredient">
+	<p>
+		<ul>
+			<li>${ingredient.nameIng} ${ingredient.unit}</li>
+			
+		</ul>
+	</p>
+</div>

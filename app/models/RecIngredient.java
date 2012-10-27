@@ -37,14 +37,18 @@ import play.db.jpa.Model;
 public class RecIngredient extends Model {
 @Required
 public Ingredient ing;
-@Required
-public Integer quantity;
-@Required
-public Integer persons;
-public RecIngredient(Ingredient ing,Integer quant, Integer pers)
+
+public Integer quantity1;
+
+public Integer quantity2;
+
+public Integer quantity4;
+
+public RecIngredient(Ingredient ing,Integer quant1, Integer quant2,Integer quant4)
 {
 	this.ing = ing;
-	this.quantity = quant;
-	this.persons = pers;
+	this.quantity1 = quant1;
+	this.quantity2 = quant2;
+	this.quantity4 = quant4;
 }
 }

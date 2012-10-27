@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title: 'Ingredients' /}
+#{set 'moreStyles'}
+	<link rel="stylesheet" href="@{'/public/stylesheets/ingredient.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+
+
+<div id="ingredient-list">
+	<h2 class="title">
+		Ingredients
+	</h2>
+	#{if ingredients.size() > 0}
+		<ul>
+			#{list items:ingredients, as:'ingredient'}
+				<li><a href="@{Ingredients.show(ingredient.id)}">${ingredient.toString()}</a>
+					<span class="ingredient-metadata"> - used by private</span>
+				</li>
+			#{/list}
+		</ul>
+	#{/if}
+	#{else}
+		<div class="empty">
+	       	There are no ingredients.
+	   	</div>
+	#{/else}
+</div>

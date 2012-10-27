@@ -31,7 +31,6 @@ import play.db.jpa.Model;
 public class Ingredient extends Model {
 	
 	@Required
-	@Column(unique=true)
 	public String nameIng;
 	
 	@Required 
@@ -68,6 +67,10 @@ public class Ingredient extends Model {
 		
 		return (Ingredient) query.getSingleResult();
 		
+	}
+	@Override
+	public String toString() {
+		return nameIng;
 	}
 
 }
