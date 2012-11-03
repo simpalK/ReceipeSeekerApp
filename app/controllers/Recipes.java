@@ -19,11 +19,15 @@ public class Recipes extends Controller {
 
 	  public static void index() {
 	    	List<Recipe> recipes = Recipe.all().fetch();
-	    	render(recipes);
+	    	List<Ingredient> ingredients = Ingredient.all().fetch();
+
+	    	render(recipes,ingredients);
 	  }
 
 	    public static void add() {
-		   render();
+	    	List<Ingredient> ingredients = Ingredient.all().fetch();
+
+		   render(ingredients);
 	    }
 	    
 	    public static void show(Long id) {
@@ -70,12 +74,12 @@ public class Recipes extends Controller {
 	    	}
 	    }
 	    
-	    public static void addRecipe(String name, String des, User own, Integer like, String award, Integer rate, String link)
+	    public static void addRecipe(String name, String des, User own, Integer like, String award, Integer rate, String link, String country, String taste)
 		{
 			
 			
 	    								
-	    		Recipe recipe = new Recipe(name, des, own, like, award, rate, link);
+	    		Recipe recipe = new Recipe(name, des, own, like, award, rate, link, country, taste);
 	    		
 	  
 	    		if (recipe.validateAndSave())

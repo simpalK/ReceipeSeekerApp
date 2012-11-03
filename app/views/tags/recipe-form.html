@@ -20,6 +20,26 @@
 #{/field}
 </p>
 
+<p>
+#{field 'country'}
+   	<label for="name">Country</label>
+    <input type="text" name="${field.name}" id="country" autofocus="autofocus" value="#{ifErrors}${flash.country}#{/ifErrors}#{else}${_recipe?.country}#{/else}"/>
+#{/field}
+</p>
+
+<p>
+#{field 'taste'}
+   	<label for="name">Taste</label>
+		<select name="${field.name}" id = "taste">
+		<option name="${field.name}" value=salty> salty </option>
+		<option name="${field.name}" value=sweet> sweet </option>
+		<option name="${field.name}" value=spicy> spicy </option>
+		</select>
+#{/field}
+
+</p>
+
+
 
 
 

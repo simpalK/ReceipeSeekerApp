@@ -55,6 +55,10 @@ public class Recipe extends Model{
 	
 	
 	public String link;
+	
+	public String country;
+	
+	public String taste; 
 
 	@Required
 	@OneToMany
@@ -62,7 +66,7 @@ public class Recipe extends Model{
 	
 	
 
-	public Recipe(String name, String des, User own, Integer like, String award, Integer rate, String link)
+	public Recipe(String name, String des, User own, Integer like, String award, Integer rate, String link, String country, String taste)
 	{
 		this.nameRec = name;
 		this.description = des;
@@ -71,6 +75,8 @@ public class Recipe extends Model{
 		this.award= "no";
 		this.link = link;
 		this.listOfIng= new ArrayList<RecIngredient>();
+		this.country=country;
+		this.taste=taste;
 		
 	}
 	
@@ -112,8 +118,15 @@ public class Recipe extends Model{
 		return (User) query.getSingleResult();
 		
 	}
-	public void addIngredients(List recIngredient)
+	public void addIngredients(String nameIng, Integer quantity, Integer numPer)
 	{
-		this.listOfIng.addAll(recIngredient);
+		Query query = JPA.em().createQuery("SELECT e FROM Ingredient e " +
+				"WHERE e.name = ?1");
+		query.setParameter(1, nameIng);
+		RecIngredient newIng = new RecIngredient((Ingredient)query.getSingleResult(), quantity, numPer);
+		newIng.save();
+		this.listOfIng.add(newIng);
+		this.save();
 	}
+	
 }

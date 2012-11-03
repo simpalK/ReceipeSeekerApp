@@ -23,3 +23,22 @@
 	   	</div>
 	#{/else}
 </div>
+<div id="ingrendient-list">
+	<h2 class="title">
+		Ingredients
+	</h2>
+	#{if ingredients.size() > 0}
+		<ul>
+			#{list items:ingredients, as:'ingredient'}
+				<li><a href="@{Ingredients.show(ingredient.id)}">${ingredient.toString()}</a>
+					<span class="ingredient-metadata"> - used by private</span>
+				</li>
+			#{/list}
+		</ul>
+	#{/if}
+	#{else}
+		<div class="empty">
+	       	There are no ingredients.
+	   	</div>
+	#{/else}
+</div>

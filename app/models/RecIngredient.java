@@ -33,22 +33,18 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
-
 public class RecIngredient extends Model {
 @Required
 public Ingredient ing;
+@Required
+public Integer quantity;
+@Required
+public Integer numofPersons;
 
-public Integer quantity1;
-
-public Integer quantity2;
-
-public Integer quantity4;
-
-public RecIngredient(Ingredient ing,Integer quant1, Integer quant2,Integer quant4)
+public RecIngredient(Ingredient ing,Integer quant, Integer numPer)
 {
 	this.ing = ing;
-	this.quantity1 = quant1;
-	this.quantity2 = quant2;
-	this.quantity4 = quant4;
+	this.quantity = quant;
+	this.numofPersons = numPer;
 }
 }
