@@ -1,0 +1,230 @@
+#{extends 'main.html' /}
+#{set title:'Add a Receipe'/}
+#{set 'moreStyles'}
+	<link rel="stylesheet" href="@{'/public/stylesheets/ingredient.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+</HEAD>
+<BODY>
+<FORM @Receipes.addReceipe()>
+<span id="fooBar">&nbsp;</span>
+ 
+<h2 class="title">Add an Ingredient</h2>
+<h3 class="title">
+		Ingredients
+	</h3>
+<table >
+<tr>
+<th id="ingrendient-list">
+	
+	#{if ingredients.size() > 0}
+
+			<select id="ingList1" name=mytextarea size=5 multiple>		
+			#{list items:ingredients, as:'ingredient'}
+<option name="@{Ingredients.show(ingredient.id)}" value=${ingredient.toString()}> ${ingredient.toString()} </option>
+				
+			#{/list}
+			</select>
+			
+	#{/if}
+	#{else}
+		<div class="empty">
+	       	There are no ingredients.
+	   	</div>
+	#{/else}
+	</th>
+	<th>
+		<p class="button">
+			<input type="button" id="addButt" value=">>" onclick="addToBasket();" />
+		</p>
+		
+		<p class="button">
+			<input type="button" id="removeButt" value="<<" onclick="removeFromBasket();"/>
+		</p>
+		
+		<script>
+		var element="";
+		var listAct1 ="ingList1";
+		var listAct2 = "ingList2";
+		var counter=0;
+		var newWindow;
+		// array to store the basket elements
+		var basketElements= new Array();
+		var ingQuantity = new Hashtable();
+		
+		function saveIngRec(){
+			var quantElement;
+			var nameElement;
+			var display="";
+			var dis;
+			var recIngNam;
+			var recIngQuant;
+			var action;
+			
+		/*for(var i=0;i<counter;i++){
+			display="input" + (i.toString());
+			
+				quantElement = document.getElementById(display);
+				recIngNam=quantElement.name;
+				recIngQuant=quantElement.value;
+			//nameElement = document.getElementById("label"+ counter.toString());
+				dis = dis + " " + recIngNam + " " +recIngQuant;
+				
+		}*/
+		
+
+				 
+			alert(dis);
+			
+		}
+		function addToBasket()
+		{
+  			var selectedElement = document.getElementById('ingList1');
+  			var temp;
+  			var i;
+  			for (i = selectedElement.length - 1; i>=0; i--) {
+    			if (selectedElement.options[i].selected) {
+    				temp=selectedElement.options[i];
+    				basketElements[i]=selectedElement.options[i];
+    				add('0',selectedElement.options[i].value);	
+    				counter++;
+    				passToBasket(selectedElement.options[i],listAct2);
+      				selectedElement.remove(i);
+    			}
+  			}
+	
+		}
+		
+		function passToBasket(element,listAct)
+		{
+			var newElement = document.createElement('option');
+			
+  			newElement.text = element.text;
+  			newElement.value = element.value;
+			  
+			var passedElement = document.getElementById(listAct);
+			try {
+			    passedElement.add(newElement, null); 
+			  }
+			catch(ex) {
+			    passedElement.add(newElement); 
+ 			 }
+		}
+		
+		function removeFromBasket()
+		{
+			var selectedElement = document.getElementById('ingList2');
+  			var i;
+  			for (i = selectedElement.length - 1; i>=0; i--) {
+    			if (selectedElement.options[i].selected) {
+    				passToBasket(selectedElement.options[i],listAct1);
+      				selectedElement.remove(i);
+      				counter--;
+    			}
+  			}
+		}
+		function addQuan() {
+			
+			newWindow.alert("fdfdfdf");
+			}
+		function add(type,ingNam) {
+			var element;
+			var element1;
+			var foo;
+  			var i;
+  			
+		
+		    element = document.createElement("input");
+		     element1 = document.createElement('label');
+		 
+		    //Assign different attributes to the element.
+		    element.setAttribute("type", type);
+		    element.setAttribute("value", type);
+		    element.setAttribute("name", ingNam);
+		    element.setAttribute("id", "input"+ counter.toString());
+		 
+		    element1=document.createTextNode(ingNam);
+		 //   element1.setAttribute("id", "label"+ counter.toString());
+		   foo = document.getElementById("fooBar");
+		 
+		    //Append the element in page (in span).
+		     foo.appendChild(element1);
+		    foo.appendChild(element);
+		
+	        
+		 
+		}
+		
+							
+			
+		
+		
+		</script>
+		
+	</th>
+	<th id="recIngredient-List">
+		<select id="ingList2" name=mytextarea size=5 multiple>
+		
+		<div class="empty">
+	       	There are no ingredients.
+	   	</div>
+			
+		</select>
+			
+	</th>
+	<th>
+		<p class="button">
+			<input type="button" id="completeIngredients" value="Completed" onclick="saveIngRec()" />
+		</p>
+	</th>
+</tr>
+</table>
+<p>
+<p>
+#{field 'name'}
+   	<label for="name">Receipe Name</label>
+    <input type="text" name="${field.name}" id="name" autofocus="autofocus" value="#{ifErrors}${flash.name}#{/ifErrors}#{else}${_receipe?.name}#{/else}"/>
+#{/field}
+</p>
+<p>
+#{field 'description'}
+<label for="name">Description</label>
+<textarea name="${field.name}" id="description" rows="5" cols="10"></textarea>
+#{/field}
+</p>
+<p>
+#{field 'link'}
+   	<label for="name">Link</label>
+    <input type="text" name="${field.link}" id="link" autofocus="autofocus" value="#{ifErrors}${flash.link}#{/ifErrors}#{else}${_receipe?.link}#{/else}"/>
+#{/field}
+</p>
+<p>
+#{field 'country'}
+   	<label for="name">Country</label>
+    <input type="text" name="${field.country}" id="country" autofocus="autofocus" value="#{ifErrors}${flash.country}#{/ifErrors}#{else}${_receipe?.country}#{/else}"/>
+#{/field}
+</p>
+<p>
+#{field 'numofPersons'}
+   	<label for="name">Number of Persons</label>
+    <input type="text" name="${field.numofPersons}" id="numofPersons" autofocus="autofocus" value="#{ifErrors}${flash.numofPersons}#{/ifErrors}#{else}${_receipe?.numofPersons}#{/else}"/>
+#{/field}
+</p>
+<p>
+#{field 'taste'}
+   	<label for="name">Taste</label>
+		<select name="${field.name}" id = "taste">
+		<option name="${field.name}" value=salty> salty </option>
+		<option name="${field.name}" value=sweet> sweet </option>
+		<option name="${field.name}" value=spicy> spicy </option>
+		</select>
+#{/field}
+</p>
+<p class="button">
+	<input type="submit" value="Add your receipe" />
+</p>
+<p class="button">
+	<input type="reset" value="Reset" />
+</p>
+</FORM>
+</BODY>
+</HTML>

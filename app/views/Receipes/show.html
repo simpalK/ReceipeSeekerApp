@@ -1,0 +1,35 @@
+#{extends 'main.html' /}
+#{set title:'Receipes'/}
+#{set 'moreStyles'}
+	<link rel="stylesheet" href="@{'/public/stylesheets/ingredient.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+
+#{set 'options'}
+	<li><a class="navigation" href="@{Receipes.add()}">Add a receipe</a></li>
+	<li><a class="navigation" href="@{Receipes.edit(receipe.id)}">Edit this receipe</a></li>
+	<li><a href="@{Receipes.delete(receipe.id)}">Delete this receipe</a></li>
+#{/set}	
+
+<h2 class="title">Infos about this receipe</h2>
+ <div id="receipe">
+	<p>
+		<ul>
+			<li>${receipe.name} ${receipe.taste} ${receipe.likes} ${receipe.rating} ${receipe.award}</li>
+			<div id="rec-ingrendient-list">
+	
+	#{if receipe.recIngredients.size() > 0}
+	#{list items:receipe.recIngredients, as:'recIngredient'}
+     <li> ${recIngredient.toString()} ,${recIngredient.quantity.toString()} </li>
+				
+			#{/list}
+			</select>
+			
+	#{/if}
+	#{else}
+		<div class="empty">
+	       	There are no ingredients.
+	   	</div>
+	#{/else}
+		</ul>
+	</p>
+</div>

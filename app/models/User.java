@@ -33,5 +33,8 @@ import play.db.jpa.Model;
 @Table(name="User")
 public class User extends Model {
 	public String name;
+	public User(String nam){
+		this.name=nam;
+	}
 
 }

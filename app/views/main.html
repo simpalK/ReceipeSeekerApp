@@ -12,25 +12,115 @@
     </head>
     <body>
         #{doLayout /}
-        #{fbconnect.button label:'Login using your facebook account.' /}
-    
-    
-					<li>#{a @Ingredients.index()}Ingredients#{/a}
-					<li>#{a @Recipes.index()}Recipes#{/a}
+    			<li>#{a @Ingredients.index()}Ingredients#{/a}
+			    <li>#{a @Receipes.index()}Recipes#{/a}
+				<li>#{a @RecIngredients.index()}Recipe Ingredients#{/a}
+<meta type="description" content="Login using Facebook account"/>
+<script src="http://platform.twitter.com/anywhere.js?id=r2HU69JxfHSTaymcX8Tcg&v=1" type="text/javascript"></script>  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+//$.ajax({type: "POST", url: "@{Ingredients.addIngredient('PotatoFry','2')}", });
+//$.ajax({type: "POST", url: "@Receipes.addRecIngredients('potatofry','2')}",});
+var xmlhttp;
+		var facebook = "<div id='facebook' style='display: inline-block;'></div>";
+		document.getElementById("share").innerHTML = twitter+"&nbsp;"+facebook;
+</script>
+
+<body bgcolor="#eeeeee">
+	<div id="fb-root"></div>
+	<script type="text/javascript">
+		window.fbAsyncInit = function() {
+			FB.init({appId: '429296290453221', status: true, cookie: true, xfbml: true});
+
+			FB.Event.subscribe('auth.login', function(response) {
+				login();
+			});
+			FB.Event.subscribe('auth.logout', function(response) {
+				logout();
+			});
+
+			FB.getLoginStatus(function(response) {
+				if (response.session) {
+					greet();
+				}
+			});
+		};
+		(function() {
+			var e = document.createElement('script');
+			e.type = 'text/javascript';
+			e.src = document.location.protocol +
+				'//connect.facebook.net/en_US/all.js';
+			e.async = true;
+			document.getElementById('fb-root').appendChild(e);
+		}());
+
+		function login(){
+			FB.api('/me', function(response) {
+				alert('You have successfully logged in, '+response.name+"!");
+			});
+		}
+		function logout(){
+			alert('You have successfully logged out!');
+		}
+		function greet(){
+			FB.api('/me', function(response) {
+				alert('Welcome, '+response.name+"!");
+			});
+		}
+
+		function setStatus(){
+		
+			// check if user is logged in:
+			FB.getLoginStatus(function(response) {
+			  if (response.session) {
+					new_status = document.getElementById('status').value;
+					FB.api(
+					  {
+						method: 'status.set',
+						status: new_status
+					  },
+					  function(response) {
+						if (response == 0){
+							alert('Your facebook status not updated. Give Status Update Permission.');
+						}
+						else{
+							alert('Your facebook status updated');
+						}
+					  }
+					);
+			  } else {
+					alert('please log in first :)');
+			  }
+			});
+		
+			
+		}
+		
+		
+
+
+
+	</script>
+<fb:login-button autologoutlink='true' perms='email,user_birthday,status_update,publish_stream'></fb:login-button>
 	
-				
-				
+<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
+      
+          			<li>#{a @Ingredients.index()}Ingredients#{/a}
+					<li>#{a @Receipes.index()}Recipes#{/a}				
 						<ul>
 							#{get 'options' /}
 							<li>#{a @Ingredients.add()}Create a new Ingredient#{/a}</li>
-							<li>#{a @Recipes.add()}Create a new Recipe#{/a}</li>
+							<li>#{a @Game.game()}Game#{/a}</li>
+							<!--<li>#{a @Receipes.add()}Create a new Recipe#{/a}</li>-->
+							<li>#{a @RecIngredients.add()}Add an Ingredient to Recipe#{/a}</li>
 						<ul>
-					
         	
 		<div id="footer">
             .ReceipeSeeker is the most user friendly ... 
             <a href="http://www.playframework.org">Play framework</a>
             for a task in the Social Computing course at <a href="http://www.unifr.ch/">University of Fribourg / Switzerland</a>.
 		</div>
+		
 		</body>
 </html>

@@ -118,15 +118,5 @@ public class Recipe extends Model{
 		return (User) query.getSingleResult();
 		
 	}
-	public void addIngredients(String nameIng, Integer quantity, Integer numPer)
-	{
-		Query query = JPA.em().createQuery("SELECT e FROM Ingredient e " +
-				"WHERE e.name = ?1");
-		query.setParameter(1, nameIng);
-		RecIngredient newIng = new RecIngredient((Ingredient)query.getSingleResult(), quantity, numPer);
-		newIng.save();
-		this.listOfIng.add(newIng);
-		this.save();
-	}
 	
 }

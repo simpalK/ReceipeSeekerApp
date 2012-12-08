@@ -1,18 +1,18 @@
 #{extends 'main.html' /}
-#{set title: 'Ingredients' /}
+#{set title: 'Recipe Ingredients' /}
 #{set 'moreStyles'}
 	<link rel="stylesheet" href="@{'/public/stylesheets/ingredient.css'}" type="text/css" media="screen" charset="${_response_encoding}">
 #{/set}
 
 
-<div id="ingredient-list">
+<div id="recingredient-list">
 	<h2 class="title">
-		Ingredients
+		Recipe Ingredients
 	</h2>
-	#{if ingredients.size() > 0}
+	#{if recIngredients.size() > 0}
 		<ul>
-			#{list items:ingredients, as:'ingredient'}
-				<li><a href="@{Ingredients.show(ingredient.id)}">${ingredient.toString()}</a>
+			#{list items:recIngredients, as:'recIngredient'}
+				<li><a href="@{RecIngredients.show(recIngredient.id)}">${recIngredient.toString()}</a>
 					<span class="ingredient-metadata"> - used by private</span>
 				</li>
 			#{/list}
@@ -20,9 +20,9 @@
 	#{/if}
 	#{else}
 		<div class="empty">
-	       	There are no ingredients.
+	       	There are no ingredients in recipe.
 	   	</div>
 	#{/else}
 	
-	<a href="/game/game" >Game</a>
+	
 </div>
