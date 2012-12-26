@@ -26,15 +26,23 @@ import org.joda.time.Days;
 import play.db.jpa.JPA;
 import play.data.validation.Required;
 import play.db.jpa.Model;
+import com.google.gson.JsonObject;
+import play.mvc.Scope.Session;
+
 @Entity
 @Table(name="Receipe")
 public class Receipe extends Model {
 	
 	@Required
+	
 	public String name;
 	
 	@Required 
 	public String description;
+	
+	public String description2;
+	public String description3;
+	public String description4;
 	
 	@Required 
 	public String taste;
@@ -43,8 +51,12 @@ public class Receipe extends Model {
 	
 	public String country;
 	
+	public int rate;
+	
 	@Required
 	public User owner;
+	
+	public String currentUser="*****";
 	
 	@Required
 	public Integer likes;
@@ -61,21 +73,38 @@ public class Receipe extends Model {
 	@OneToMany(mappedBy="receipe", cascade=CascadeType.ALL)
 	public List<RecIngredient> recIngredients;
 	
+	@OneToMany(mappedBy="receipe", cascade=CascadeType.ALL)
+	public List<Comment> comments;
 	//public Image img;
 	
 	public Receipe()
 	{
-		this.name = "Please Enter Recipe Name";
+		this.name = "";
 		this.taste = "salty";
-		this.description= "Please write a short description for your Recipe";
+		this.description= "short description for your Recipe";
+		this.description2="";
+		this.description3="";
+		this.description4="";
 		this.link="provide a link if any";
 		this.country="Select the country";
 		this.likes=0;
 		this.award="no";
 		this.rating=0;
-		this.owner=new User("owner");
+		this.owner=new User("not specified","not identified");
 		this.numofPersons = "4";
 		this.recIngredients = new LinkedList<RecIngredient>();
+		this.rate=0;
+		this.comments=new LinkedList<Comment>();
+		//this.owner="no-session@gmail.com";
+		//this.currentUser=Session.current().get("currentUser");
+		/*if(Session.current() != null) {
+		//	this.owner=Session.current().get("currentUser");
+			this.owner="fdjfldjfldfjl";
+		} else {
+
+			this.owner="no-session@gmail.com";
+
+      }*/
 		
 		
 	}
@@ -90,10 +119,10 @@ public class Receipe extends Model {
 	return super.delete();
 	}
 	
-	public List<Receipe> listIng()
+	public static List<Receipe> listIng()
 	{
 
-		Query query = JPA.em().createQuery("SELECT * FROM Receipe");
+		Query query = JPA.em().createQuery("SELECT e FROM Receipe e Order By likes++");
 		return query.getResultList();
 	}
 	
@@ -107,6 +136,17 @@ public class Receipe extends Model {
 		return (Receipe) query.getSingleResult();
 		
 	}
+	public User getOwner(String name)
+	{
+
+		Query query = JPA.em().createQuery("SELECT e FROM User e " +
+				"WHERE e.name = ?1");
+		query.setParameter(1, name);
+		
+		return (User) query.getSingleResult();
+		
+	}
+	
 	@Override
 	public String toString() {
 		return name;

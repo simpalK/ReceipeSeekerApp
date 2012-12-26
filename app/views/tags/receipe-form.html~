@@ -1,0 +1,141 @@
+
+<table id"tablenewrecipe" >
+   		<tr>
+   			<th id="newrecipe">
+
+<p>
+#{field 'name'}
+   	<label for="name">Receipe Name</label>
+    <input type="text" name="${field.name}" onclick="this.value=''" id="name" required="required" autofocus="autofocus" value="#{ifErrors}${flash.name}#{/ifErrors}#{else}${_receipe?.name}#{/else}"/>
+#{/field}
+</p>
+
+<label for="name"><i>Enter your details if you would like to display your name on receipe</i></label>
+#{field 'username'}
+<label for="name"><i>Recipe Owner Name</i></label>
+<input type="text" name="${field.name}" id="usernameCurrent" value="Enter your name here"/>
+#{/field}
+</p>
+<p>
+#{field 'userid'}
+<label for="name"><i>Recipe Owner email</i></label>
+<input type="text" name="${field.name}" id="useridCurrent"  value="Enter your email id"/>
+#{/field}
+</p>
+
+<!--
+<p>
+
+#{field 'taste'}
+<label for="name">taste</label>
+
+<p>
+<input type="radio" name="${field.name}" id="taste" value="salty" #{if _receipe.taste=="salty"} checked #{/if}>Salty<br/>
+<input type="radio" name="${field.name}" id="taste" value="sweet" #{if _receipe.taste=="sweet"} checked #{/if}>Sweet<br/>
+<input type="radio" name="${field.name}" id="taste" value="spicy" #{if _receipe.taste=="spicy"} checked #{/if}>Spicy <br/>
+</p>
+#{/field}
+</p>-->
+<table id="tableRecipeGame"><tr><th valign=top>
+<p>
+#{field 'taste'}
+   	<label for="name">Taste</label>
+		<select name="${field.name}" id = "taste">
+		<option name="${field.name}" value="salty" #{if _receipe.taste=="salty"} selected #{/if}> salty </option>
+		<option name="${field.name}" value="sweet" #{if _receipe.taste=="sweet"} selected #{/if}> sweet </option>
+		<option name="${field.name}" value="spicy" #{if _receipe.taste=="spicy"} selected #{/if}> spicy </option>
+		</select>
+#{/field}
+</p>
+
+<p>
+#{field 'numofPersons'}
+<label for="name">NumofPersons</label><br/>
+<input type="radio" name="${field.name}" id="numofPersons" value="1" #{if _receipe.numofPersons=="1"} checked #{/if}>1 Person<br/>
+<input type="radio" name="${field.name}" id="numofPersons" value="2" #{if _receipe.numofPersons=="2"}checked #{/if}>2 Person<br/>
+<input type="radio" name="${field.name}" id="numofPersons" value="4" #{if _receipe.numofPersons=="4"} checked #{/if}>4 Persons <br/>
+
+#{/field}
+</p>
+
+<lable for="ing"><i>Ingredients quantity</i></label></br>
+<p>
+#{field 'firstIngQuant'}
+   	
+    <input type="text" size="5" name="${field.name}" onclick="this.value=''" id="firstIngQuant" autofocus="autofocus" value="${_receipe?.recIngredients.get(0).quantity}">
+<label for="name">${_receipe.recIngredients.get(0).toString()}</label>
+#{/field}
+</p>
+<p>
+#{field 'secondIngQuant'}
+   	
+    <input type="text" size="5" name="${field.name}" onclick="this.value=''" id="secondIngQuant" autofocus="autofocus" value="${_receipe?.recIngredients.get(1).quantity}">
+<label for="name">${_receipe.recIngredients.get(1).toString()}</label>
+#{/field}
+</p>
+<p>
+#{field 'thirdIngQuant'}
+   	
+    <input type="text" size="5" name="${field.name}" onclick="this.value=''" id="thirdIngQuant" autofocus="autofocus" value="${_receipe?.recIngredients.get(2).quantity}">
+
+<label for="name">${_receipe.recIngredients.get(2).toString()}</label>#{/field}
+</p>
+<p>
+#{field 'fourthIngQuant'}
+   
+    <input type="text" size="5" name="${field.name}" onclick="this.value=''" id="fourthIngQuant" autofocus="autofocus" value="${_receipe?.recIngredients.get(3).quantity}">
+	<label for="name">${_receipe.recIngredients.get(3).toString()}</label>
+#{/field}
+</p>
+
+
+<th valign=top>
+<p>
+#{field 'description'}
+<label for="name"><i>Description</i> <small>(max. 27 lines)</small></label></br>
+<textarea type="text" name="${field.name}" id="description" required="required" rows="23" cols="35" value=${_receipe?.description}>#{ifErrors}${flash.description}#{/ifErrors}#{else}${_receipe?.description}#{/else}</textarea>
+#{/field}
+</p>
+</th></tr></table>
+
+<p>
+#{field 'country'}
+   	<label for="name">Country</label>
+	<select name="${field.name}" id = "country">
+	<option name="${field.name}" value=""> Select a country </option>
+		<option name="${field.name}" value=America> America </option>
+		<option name="${field.name}" value=England> England </option>
+		<option name="${field.name}" value=China> China </option>
+		<option name="${field.name}" value=Greece> Greece </option>
+		<option name="${field.name}" value=India> India </option>
+		<option name="${field.name}" value=Iran> Iran </option>
+		<option name="${field.name}" value=Italy> Italy </option>
+		<option name="${field.name}" value=Lebanon> Lebanon </option>
+		<option name="${field.name}" value=Mexico> Mexico </option>
+		<option name="${field.name}" value=Norway> Norway </option>
+	</select>
+#{/field}
+</p>
+<p>
+#{field 'link'}
+   	<label for="name"><i>Link</i></label>
+    <input type="text" name="${field.name}" onclick="this.value=''" id="link" autofocus="autofocus" value="#{ifErrors}${flash.link}#{/ifErrors}#{else}${_receipe?.link}#{/else}"/>
+#{/field}
+</p>
+
+
+
+	
+<input type="reset" value="Reset" id="buttonReset"/>&nbsp;&nbsp;<input type="submit" value="Add your recipe!" id="buttonAddRec" />
+</th>
+
+
+
+<th id="newrecimage">
+
+</th>
+
+
+</tr>
+
+</table>

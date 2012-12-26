@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        #{get 'moreScripts' /}
+		 <ul id="menu">
+			<li> #{a @Application.index()}Home#{/a}</li>
+			<li><a href="javascript:javascript:history.go(-1)">Back</a></li>
+			<li>#{a @Ingredients.add()}AddIngredient#{/a}</li>
+			<li>#{a @Ingredients.index()}Ingredients#{/a}</li>
+			<li>#{a @Receipes.index()}Recipes#{/a}</li>
+			<li>#{a @Game.index()}Game#{/a}</li>
+			<li>#{a @Search.search()}FindRecipe #{/a}</li>
+			<li>#{a @Game.intro}Help#{/a}</li>
+		</ul>
+
+    </head>
+    <body>
+        #{doLayout /}
+        <table id='explorer'><tr ><th id='links'> #{get 'options' /}
+
+                    
+                            #{get 'options' /}
+                            &nbsp;&nbsp;&nbsp;#{a @Game.index()}Recipe Game#{/a}<br/>
+                            
+                        
+                    
+                </th>
+                <th id="links">
+                
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{a @Search.search()}Find a Recipe #{/a}<br/>
+                    
+                    
+                    
+                </th></tr>
+                
+                        
+        </table>        
+    			
+<meta type="description" content="Login using Facebook account"/>
+<script src="http://platform.twitter.com/anywhere.js?id=r2HU69JxfHSTaymcX8Tcg&v=1" type="text/javascript"></script>  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+//$.ajax({type: "POST", url: "@{Ingredients.addIngredient('PotatoFry','2')}", });
+//$.ajax({type: "POST", url: "@Receipes.addRecIngredients('potatofry','2')}",});
+var xmlhttp;
+		var facebook = "<div id='facebook' style='display: inline-block;'></div>";
+		document.getElementById("share").innerHTML = twitter+"&nbsp;"+facebook;
+</script>
+
+<body bgcolor="#eeeeee">
+	<div id="fb-root"></div>
+	<script type="text/javascript">
+		window.fbAsyncInit = function() {
+			FB.init({appId: '429296290453221', status: true, cookie: true, xfbml: true});
+
+			FB.Event.subscribe('auth.login', function(response) {
+				login();
+			});
+			FB.Event.subscribe('auth.logout', function(response) {
+				logout();
+			});
+
+			FB.getLoginStatus(function(response) {
+				if (response.session) {
+					greet();
+				}
+			});
+		};
+		(function() {
+			var e = document.createElement('script');
+			e.type = 'text/javascript';
+			e.src = document.location.protocol +
+				'//connect.facebook.net/en_US/all.js';
+			e.async = true;
+			document.getElementById('fb-root').appendChild(e);
+		}());
+
+		function login(){
+			FB.api('/me', function(response) {
+			userName= document.getElementById('username');
+              		userName.setAttribute("value",response.name);
+			userid= document.getElementById('userid');
+			userid.setAttribute("value",response.authResponse.userID);
+            
+			alert('You have successfully logged in, '+response.name+"!");
+			});
+		}
+		function logout(){
+			alert('You have successfully logged out!');
+		}
+		function greet(){
+			FB.api('/me', function(response) {
+				alert('Welcome, '+response.name+"!");
+			});
+		}
+
+		function setStatus(){
+		
+			// check if user is logged in:
+			FB.getLoginStatus(function(response) {
+			  if (response.session) {
+					new_status = document.getElementById('status').value;
+					FB.api(
+					  {
+						method: 'status.set',
+						status: new_status
+					  },
+					  function(response) {
+						if (response == 0){
+							alert('Your facebook status not updated. Give Status Update Permission.');
+						}
+						else{
+							alert('Your facebook status updated');
+						}
+					  }
+					);
+			  } else {
+					alert('please log in first :)');
+			  }
+			});
+		
+			
+		}
+		function facebookLogin() {
+			
+			
+		
+		}
+		
+	</script>
+	
+	
+	
+        	
+		<div id="footer">
+           ReceipeSeeker is an app for a task in the Social Computing course at <a href="http://www.unifr.ch/">University of Fribourg / Switzerland</a>.
+  It has been used <a href="http://www.playframework.org">Play framework</a>
+    <br/>Please contact us for any info (problems, bugs, feedbacks,…) Simpal Kumar <mailto:simpal.kumar@students.unibe.ch> or <mailto:simpal.kumar@gmail.com>,Samaneh Soleimani<mailto:samaneh.soleimani@students.unibe.ch> and Valentina Coletti<mailto:valentina.coletti14@gmail.com>.
+</div>
+
+		<p>
+
+    	<input type="hidden" name="userName" id="username" />
+	<input type="hidden" name="userid" id="userid" />
+
+
+</p>
+		
+		</body>
+</html>

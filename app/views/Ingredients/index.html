@@ -9,11 +9,14 @@
 	<h2 class="title">
 		Ingredients
 	</h2>
+	<p class="outset" > #{a @Ingredients.add()}+ Add new Ingredient#{/a}</p>
+	
+	<table id="tableing"><td><th id="lefting">
 	#{if ingredients.size() > 0}
-		<ul>
+		<ul class="a">
 			#{list items:ingredients, as:'ingredient'}
-				<li><a href="@{Ingredients.show(ingredient.id)}">${ingredient.toString()}</a>
-					<span class="ingredient-metadata"> - used by private</span>
+				<li ><a href="@{Ingredients.show(ingredient.id)}">${ingredient.toString()}</a>
+					<span class="ingredient-metadata"> </span>
 				</li>
 			#{/list}
 		</ul>
@@ -23,6 +26,9 @@
 	       	There are no ingredients.
 	   	</div>
 	#{/else}
+	</div>
+	</th><th id="indexingimg">
 	
-	<a href="/game/game" >Game</a>
-</div>
+	</th>
+	</td>
+	</table>

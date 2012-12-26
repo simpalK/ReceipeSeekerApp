@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Game'/}
+#{set 'moreStyles'}
+    <link rel="stylesheet" href="@{'/public/stylesheets/game.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+
+<body>
+<h2 class="title"> Welcome to Recipe Games. Hope you will enjoy this! :) </h2>
+
+<h3 class="title"> "Master Chef Recipe" is challenging as you need to give recipes for randomly selected ingredients!!</h3>
+<h3 class="title"> "Chef Recipe" is to add the recipes to fulfill User's demand!! </h3>
+
+<br />   <br /> 
+<h4 class="title">&nbsp;&nbsp;Which Game would you like to play? "Master Chef Recipe" or "Chef Recipe" Please Click below to start</h4>
+        
+<p class="outsetMasterChefGame">&nbsp;&nbsp;#{a @Game.gamecomplex()} Master Chef Game! #{/a}
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;#{a @Game.game()}Chef Game! #{/a} </p></p>
+
+       
+ 
+	  
+	   
+   
+    
+	   <br />   <br /> <br />   <br /> 
+	 </body>
+	

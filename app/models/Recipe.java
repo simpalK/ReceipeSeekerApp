@@ -41,8 +41,10 @@ public class Recipe extends Model{
 	@Required
 	public String description;
 	
+	public String description2;
+	
 	@Required
-	public User owner;
+	public String owner;
 	
 	@Required
 	public Integer likes;
@@ -66,11 +68,11 @@ public class Recipe extends Model{
 	
 	
 
-	public Recipe(String name, String des, User own, Integer like, String award, Integer rate, String link, String country, String taste)
+	public Recipe(String name, String des, String own, Integer like, String award, Integer rate, String link, String country, String taste)
 	{
 		this.nameRec = name;
 		this.description = des;
-		this.owner = own;
+		this.owner = "";
 		this.likes = 0;
 		this.award= "no";
 		this.link = link;

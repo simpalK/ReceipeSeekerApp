@@ -28,13 +28,28 @@ import org.joda.time.Days;
 import play.db.jpa.JPA;
 import play.data.validation.Required;
 import play.db.jpa.Model;
+import com.google.gson.JsonObject;
+import play.mvc.Scope.Session;
+
 
 @Entity
-@Table(name="User")
+@Table(name="Users")
 public class User extends Model {
 	public String name;
-	public User(String nam){
-		this.name=nam;
+	public String email;
+	
+	public User(String name, String userid){
+		this.name=name;
+		this.email=userid;
 	}
-
+	
+	
+	public static User findByUserId(String userId)
+	{
+		Query query = JPA.em().createQuery("SELECT e FROM Users e " +
+				"WHERE e.email = ?1");
+    		query.setParameter(1, userId);	
+		return (User) query.getSingleResult();
+	}
+	
 }

@@ -1,0 +1,46 @@
+#{extends 'main.html' /}
+#{set title:'Search'/}
+<div id="search-receipes">
+</div>
+#{set 'moreStyles'}
+    <link rel="stylesheet" href="@{'/public/stylesheets/ingredient.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+<script type="text/javascript" src="/public/javascripts/jquery-1.5.2.min.js"></script>
+
+<div >
+    <h2 class="title">
+        Receipes Found...</h2>
+    <h3>...with exactely all ingredients you choosed!</h3>     
+ #{if receipesFoundAll.size() > 0}
+            #{list items:receipesFoundAll, as:'receipe'}
+                <li><a href="@{Receipes.show(receipe.id)}">${receipe.toString()}</a>
+                    <span class="receipe-metadata"> </span>
+                </li>
+            #{/list}
+       
+    #{/if}
+    #{else}
+        <div class="empty">
+               Sorry there are no receipe available with all ingredients. Your selected ingredients(top 4) will be put in Chef Game. Hopefully you will find the recipe soon.Thanks.
+           </div>
+    #{/else}
+    
+    
+</div>
+<div id="receipeFound-list">    
+        <h3>...with some of the ingredients you choosed!</h3>
+    #{if receipesFound.size() > 0}
+            #{list items:receipesFound, as:'receipe'}
+                <li><a href="@{Receipes.show(receipe.id)}">${receipe.toString()}</a>
+                    <span class="receipe-metadata"></span>
+                </li>
+            #{/list}
+    #{/if}
+    #{else}
+        <div class="empty">
+               There are no receipes.
+           </div>
+    #{/else}
+    
+    
+</div>

@@ -53,6 +53,7 @@ public class RecIngredient extends Model {
 	}
 	@Override
 	public String toString() {
-		return recIng.nameIng;
+		String unit=recIng.unit+" " +recIng.nameIng;
+		return unit;
 	}
 }

@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'Search'/}
+
+
+
+<h2 class="title">Find a Recipe</h2>
+#{ifErrors}
+	<span class="error">
+		Oops...
+		<ul>
+		#{errors}
+ 		<li>${error}</li>
+		#{/errors}
+		</ul>
+</span>
+
+#{/ifErrors}
+<div id="search-form">
+#{form @Search.search()}
+	#{search-form  ingredients:ingredients, receipes:receipes /}
+#{/form}
+</div>
+
+

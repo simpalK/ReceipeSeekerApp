@@ -1,34 +1,64 @@
 #{extends 'main.html' /}
 #{set title:'Game'/}
 #{set 'moreStyles'}
-	<link rel="stylesheet" href="@{'/public/stylesheets/game.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+    <link rel="stylesheet" href="@{'/public/stylesheets/game.css'}" type="text/css" media="screen" charset="${_response_encoding}">
 #{/set}
-<h2 class="title">Add a Recipe</h2>
+
+<body>
+<h2 class="title">Create a new recipe with random ingredients!</h2>
 <h3 class="instruction">
-		What can we cook with these ingredients?
-	</h3>
-	<h4 class="instruction">
-		Add your recipe then click the "Cook" button.
-	</h4>
+        <p id="istr">What can we cook with these 4 ingredients?</p>
+        Click the "Let's cook" button
+        if you know a nice recipe and <br/>you want to share it with the world :-)
+   <br />
+    </h3>
+    
+     
+    <table id ="tablefridge" summary = "four ingredients and buttons" width="400" height = "450">
+    
+        #{if four_ingr.size() > 0}
+             
+   				 <tr><th>
+   				   <br />   <br /><br />  <br />  <br />  
+                  	<font color="yellow">  &nbsp; &nbsp; &nbsp; &nbsp; ${four_ingr.get(0)}</font> 
+                 <br /> <br />  
+                 	<font color="white"> &nbsp; &nbsp; &nbsp; &nbsp;  ${four_ingr.get(1)} </font> 
+                 <br /><br />
+                  	<font color="orange">  &nbsp; &nbsp; &nbsp; &nbsp; ${four_ingr.get(2)}</font> 
+                 <br /><br />
+                  	<font color="#99CCFF"> &nbsp; &nbsp; &nbsp; &nbsp; ${four_ingr.get(3)}</font> 
+                 
+        #{/if}
+        #{else}
+            <div class="empty">
+                   There are no ingredients.
+               </div>
+        #{/else}  
+    
+     </th>
+
+     
+     <th>
+     <br />
+    <input type="button" id="difficult"value="Too difficult! I want other ingredients!" onClick="window.location.reload()">
+        <br /><br /><br />
+     <button type="submit" id="bigbuttons">
+	   Let's cook!
+	 </button><br /> <br />
+	  #{if four_ingr.size() > 0} 
+   #{a @Receipes.add([four_ingr.get(0).id,four_ingr.get(1).id,four_ingr.get(2).id,four_ingr.get(3).id,four_ingr.get(4).id])} Cook a Receipe 
+	#{/a}
+#{/if}
+        #{else}
+            <div class="empty">
+                   There are no ingredients.
+               </div>
+        #{/else}
+
+	   </tr>
+	   
+   </table> 
+    
+	   <br />   <br />
+	 </body>
 	
-	<table >
-	 <tr><th>
-	 	<img id="img1" src="/public/images/eggs.jpg" \>
-	 	<label id="labelImg1">eggs </label>
-	 </th>
-	 <th>
-	 	<img id="img2" src="/public/images/eggs.jpg" \>
-	 	<label id="labelImg2">eggs </label>
-	 </th></tr>
-	 
-	 
-	 <tr><th>
-	 	<img id="img3" src="/public/images/eggs.jpg" \>
-	 	<label id="labelImg3">eggs </label>
-	 </th>
-	 <th>
-	 	<img id="img4" src="/public/images/eggs.jpg" \>
-	 	<label id="labelImg4">eggs </label>
-	 </th></tr>
-	 
-	</table>

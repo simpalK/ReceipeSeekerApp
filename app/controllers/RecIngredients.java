@@ -88,7 +88,7 @@ public class RecIngredients extends Controller{
 	    			add();
 	    		}*/
 	    	} 
-	    	
+	    
 	    
 	
 	

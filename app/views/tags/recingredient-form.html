@@ -7,7 +7,7 @@
 
 			<select id="ingList1" name=mytextarea size=5 multiple>		
 			#{list items:ingredients, as:'ingredient'}
-<option name="@{Ingredients.show(ingredient.id)}" value=${ingredient.toString()}> ${ingredient.toString()} </option>
+           <option name="@{Ingredients.show(ingredient.id)}" value=${ingredient.id}> ${ingredient.toString()} </option>
 				
 			#{/list}
 			</select>

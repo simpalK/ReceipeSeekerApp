@@ -1,4 +1,89 @@
-/** List recipes **/
+
+h2{
+font-size: 27px;
+text-align: center;
+
+}
+
+h3{
+font-size:17px;
+text-align: center;
+
+}
+p.outset{
+text-align: center;
+color:orange;
+font-size:20px;
+border-style:outset;
+width: 200px;
+background-color:#FFCC66;
+
+
+}
+p.outsetMasterChefGame{
+text-align: center;
+color:orange;
+font-size:20px;
+border-style:outset;
+width: 600px;
+background-color:#FFCC66;
+
+
+}
+p.outsetChefGame{
+text-align: center;
+color:orange;
+font-size:20px;
+border-style:outset;
+width: 200px;
+background-color:#FFCC66;
+
+
+}
+
+#cookRecipe{
+text-align: left;
+}
+
+#tablefridge
+ {
+background-image:url('fridge.png');
+background-repeat:no-repeat;
+font-size: 24px;
+text-align: center;
+width: 800px;
+table-layout: fixed;
+}
+
+
+#difficult{
+background: #FFCC66 no-repeat top right;
+border-style:outset;
+height: 50px;
+width: 310px;
+text-align: center;
+font-size: 16px;
+}
+ 
+#cellbigbutton{
+ text-align: left;
+ 
+ }
+ 
+
+ 
+
+
+#istr{
+font-size:20px;
+}
+
+
+
+
+
+/** !! **/
+
 
 #recipe-list ul {
 	list-style: none;

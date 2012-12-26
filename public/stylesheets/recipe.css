@@ -1,9 +1,59 @@
+#tablenewrecipe{
+table-layout: fixed;
+}
+
+
+#newrecipe{
+width: 300px;
+height: 400px;
+text-align: left;
+table-layout: fixed;
+
+}
+
+
+#newrecimage {
+background-image:url('ricetta.png');
+background-size: 490px 420px;
+background-repeat:no-repeat;
+width: 700px;
+table-layout: fixed;
+font-size:20px;
+}
+
+
+#buttonReset{
+background-color: red;
+text-align: right;
+font-size: 16px;
+
+height: 55px;
+    width: 55px;
+    border-radius: 55px;
+}
+
+
+#buttonAddRec{
+background-image: url('ok.png');
+background-size: 60px 70px;
+background-color: white;
+background-repeat: no-repeat;
+height: 80px;
+width: 170px;
+text-align: right;
+font-size: 13px;
+}
+
+
+
+
+
 /** List recipes **/
 
 #recipe-list ul {
 	list-style: none;
 	padding: 0px;
-}
+	}
 
 #recipe-list h3 {
 	display: inline;

@@ -1,5 +1,73 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+<h2 class="title">Welcome to RecipeSeekerApp!</h2><br />
+<h4 class="title">Now its time to experience Latest feed also when a new recipe is added or viewed, you can access that recipe page too directly. We are looking forward for more recipes from our food lovers by playing "Master Chef" and "Chef" games.</h4>
+<h4 class="title"><font color="green">Wish you all a Very Happy New Year. Special Thanks to all our RecipeSeeker website users. Keep Visiting.....</font></h4><br />
+
+<table id="welcome">
+
+    <tr ><th>
+	
+ 
+        <p id="pStyle">You have some ingredients left in the fridge <br />and don’t know what to cook with them?</p>
+        <p id="pStyle">Here it’s the solution! </p>
+        <p id="pStyle">You can get recipes from all around the world <br />thanks to crowdsourcing. Or you could help <br /> others by providing your recipes  and get <br />
+ awarded if rated nicely by users.</p>
+<br /> 
+<p >Please add your ingredients if you don't find<br/> a recipe for you! Crowd will help you to cook!!</p>
+<big>Let's start!</big> <br/>
+<p> To insert new recipe click on "Game"!</p>
+<p> Please, first log in with your FB account to be able to like recipes!</p>
+<p> Please add your ingredients if you don't find a recipe for you!Crowd will help you to cook!!</p>
+       
+	<fb:login-button autologoutlink='true' perms='email,user_birthday,status_update,publish_stream'></fb:login-button>
+        
+        </th>
+        
+  <th id="imageIndex">
+ </th>   
 
 
-Welcome to ReceipeSeekerApp
+<th>
+    <div class="comments"></div>
+    <table id="table-4" Style="height: 100px; width: 250px; font-size: 12px; overflow: auto;">
+<div class="fb-like" data-send="false" data-width="450" data-show-faces="true"></div>
+    <thead>
+
+    #{if comments.size() > 0}
+        <a href="" class="show-comments">Latest feed${comments.size().pluralize()} (${comments.size()})</a>
+        #{/if}
+    </thead>
+    <tbody>
+    
+    #{if comments.size() > 0}
+        #{list items:comments, as:'comment'}
+        <div class="comment">
+            <div class="comment-metadata">
+            <tr>
+            <td style="word-wrap: break-word;">
+            <span class="comment-content"><a href="@{Receipes.show(comment.receipe.id)}">${comment.content}</span>
+               <span class="comment-date">${comment.postedAt.toString('dd.MM.yyyy HH:mm')    }</span>
+
+            </div>
+            </td>
+            </tr>
+        </div>
+        #{/list}
+    #{/if}
+
+
+</tbody>
+</table>
+
+</th>
+    
+</tr>
+<tr>
+
+<th>
+        
+</th>
+</tr>
+</table>

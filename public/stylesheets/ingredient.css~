@@ -1,0 +1,250 @@
+/** New Ingr **/
+
+#tablenewingredient{
+table-layout: fixed;
+}
+
+
+#newingredient{
+width: 400px;
+height: 300px;
+text-align: left;
+table-layout: fixed;
+
+}
+p.outset{
+color:orange;
+font-size:20px;
+border-style:outset;
+width: 200px;
+background-color:#FFCC66;
+}
+
+p.outsetEdit{
+color:orange;
+font-size:20px;
+border-style:outset;
+width: 150px;
+background-color:#FFCC66;
+}
+p.outsetCom{
+color:orange;
+font-size:20px;
+border-style:outset;
+width: 150px;
+background-color:#FFCC66;
+}
+
+
+ul.a{
+list-style-type:square;
+color:orange;
+font-size:20px;
+}
+
+#newingrimage {
+background-image:url('createingr.png');
+ background-size:450px 290px;
+background-repeat:no-repeat;
+width: 620px;
+table-layout: fixed;
+font-size:20px;
+
+
+}
+
+#unitcss{
+font-size:18px;
+
+}
+
+
+
+/**Index Ingr showing **/ 
+
+
+#tableing{
+table-layout: fixed;
+
+}
+
+#lefting{
+width: 280px;
+height: 300px;
+text-align: left;
+table-layout: fixed;
+}
+
+
+
+#indexingimg{
+background-image:url('ingr.png');
+background-size:410px 240px;
+background-repeat:no-repeat;
+width: 600px;
+table-layout: fixed;
+}
+
+
+#buttonAddIngr{
+background-image: url('ok.png');
+background-size: 60px 70px;
+background-color: white;
+background-repeat: no-repeat;
+height: 80px;
+width: 200px;
+text-align: right;
+font-size: 13px;
+}
+
+
+#buttonReset{
+background-color: red;
+text-align: right;
+font-size: 16px;
+
+height: 55px;
+    width: 55px;
+    border-radius: 55px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ingredient-metadata {
+	font-size: 0.8em;
+	margin-bottom: 1em;
+	display: inline;
+}
+
+/** Ingredient table**/
+
+table#ingredients {
+	width: 100%;
+	text-align: left;
+}
+
+/** Ingredient-Form **/
+#ingredient-form label {
+	width: 80px;
+}
+
+/** Ingredient Infos **/
+
+#ingredient ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+#map_canvas {
+	width: 100%;
+	height: 340px;
+}
+
+/** add new recipe game **/
+
+#tableRecipeGame{
+table-layout: fixed;
+width: 420px;
+height: 100px;
+text-align: bottom;
+}
+#buttonAddRec{
+background-image: url('cucina.png');
+background-size: 130px 130px;
+background-color: #FFFFCC ;
+background-repeat: no-repeat;
+height: 130px;
+width: 260px;
+text-align: right;
+font-size: 15px
+}
+
+#gnam{
+ background-image:url('cook.png');
+background-size:160px 120px;
+background-repeat:no-repeat;
+width: 160px;
+table-layout: fixed;
+font-size:20px;
+}
+#finalRecipe{
+background-image:url('image3.png');
+background-size:600px 880px;
+background-repeat:no-repeat;
+width: 600px;
+height: 880px;
+table-layout: top;
+font-size:16px;
+color:grey;
+}
+/** Search Recipe **/
+
+#searchButton{
+background-image: url('findrecipe.gif');
+background-size: 70px 70px;
+background-color: #FFFFCC ;
+background-repeat: no-repeat;
+height: 80px;
+width: 300px;
+text-align: right;
+font-size: 15px;
+}
+
+
+#addButt{
+background-color: #FFFFCC ;
+font-size: 15px;
+
+}
+
+#removeButt{
+background-color: #FFFFCC ;
+font-size: 15px;
+
+}
+#tableSearch{
+table-layout: fixed;
+
+}
+
+#leftSearch{
+width: 100px;
+height: 200px;
+text-align: center;
+table-layout: fixed;
+
+}
+#buttonAddIngr1{
+background-image: url('ok.png');
+background-size: 60px 70px;
+background-color: white;
+background-repeat: no-repeat;
+height: 80px;
+width: 255px;
+text-align: right;
+font-size: 14px;
+}
+
+
+
+/** Show recipe **/
+#likeRec{
+ background-image: url('ok.png');
+background-size: 70px 70px;
+background-color: white;
+background-repeat: no-repeat;
+height: 70px;
+width: 70px;
+text-align: right;
+}

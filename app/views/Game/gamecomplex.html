@@ -1,0 +1,54 @@
+#{extends 'main.html' /}
+#{set title:'Game'/}
+#{set 'moreStyles'}
+    <link rel="stylesheet" href="@{'/public/stylesheets/game.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+
+<body>
+
+<h2 class="title">Create a new recipe with given ingredients queried by user!</h2>
+<h3 class="instruction">
+        <p id="istr">What can we cook with these 4 ingredients?</p>
+        Click the "Let's cook" button
+        if you know a nice recipe and <br/>Why not share it with the world :-)
+   <br />
+    </h3>
+
+    
+   <table id ="tablefridge" summary = "four ingredients and buttons" width="400" height = "450">
+    
+       
+          
+   		<tr><th>
+   		  <br />   <br /><br />  <br />  <br />  
+                  	<font color="yellow">    ${listOfIng1}</font> 
+                 <br /> <br />  
+                 	<font color="blue">  ${listOfIng2} </font> 
+                 <br /><br />
+                  	<font color="orange">   ${listOfIng3}</font> 
+                 <br /><br />
+                  	<font color="#99CCFF">  ${listOfIng4}</font> 
+                 
+       
+        
+     </th>
+</tr>
+   </table> 
+     <br />
+    <input type="button" id="difficult"value="Too difficult! I want other ingredients!" onClick="window.location.reload()">
+        <br /><br /><br />
+    <!-- <button type="submit" id="bigbuttons" onlclick="@Receipes.add([four_ingr.get(0).id,four_ingr.get(1).id,four_ingr.get(2).id,four_ingr.get(3).id,four_ingr.get(4).id])}">
+	   Let's cook!
+	 </button><br /> <br />-->
+	   
+	  
+	  <p class="outset" >
+   #{a @Receipes.addQuiz(q.id)} Cook a Receipe 
+	#{/a}
+	</p>
+
+
+    
+	   <br />   <br />
+	 </body>
+	

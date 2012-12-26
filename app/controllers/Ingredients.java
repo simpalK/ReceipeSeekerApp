@@ -13,12 +13,24 @@ import play.data.validation.Validation;
 import play.mvc.Controller;
 import play.mvc.With;
 import models.*;
-
+import java.util.Collections;
+import java.util.Comparator;
 //@With(Secure.class)
 public class Ingredients extends Controller{
 
 	  public static void index() {
 	    	List<Ingredient> ingredients = Ingredient.all().fetch();
+		Collections.sort(ingredients, new Comparator() {
+		public int compare(Object o1, Object o2) {
+
+	            String x1 = ((Ingredient) o1).nameIng.toLowerCase();
+	            String x2 = ((Ingredient) o2).nameIng.toLowerCase();
+		    
+
+               	   return x1.compareTo(x2);
+	         
+		    }
+		});
 	    	render(ingredients);
 	  }
 

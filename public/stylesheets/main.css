@@ -1,0 +1,228 @@
+
+body {
+background: url('images3.jpg');
+color: 	#686868  ;
+font-family: arial, verdana, sans-serif;
+left: 5%;
+width: 800px;  
+position: absolute;
+
+}
+
+#menu{
+list-style:none;
+overflow:hidden;
+margin:0;
+padding:1px; 
+}
+
+#menu li{
+display:inline;
+}
+
+#menu a{
+display:block;
+float:left;
+width:90px;
+height:25px;
+margin-left:1px;
+padding-left:8px;
+text-decoration:none;
+  line-height:25px;
+color: #808000 ;
+  font-size: 14px;
+}
+
+#menu a:hover{
+color:grey;
+} 
+h4{
+font-size: 17px;
+text-align:center;
+}
+
+h2{
+font-size: 27px;
+text-align:center;
+}
+
+#welcome{
+background-image: ('images.9.jpg');
+width: 1200px;
+height: 300px;
+table-layout: fixed;
+
+}
+
+#imageIndex{
+background-image:url('emptyfridge.png');
+background-size: 350px 300px;
+background-repeat:no-repeat;
+vertical-align:bottom;
+}
+
+#explorer
+ {
+font-size: 18px;
+text-align: left;
+width: 600px;
+table-layout: fixed;
+
+}
+
+#links{
+padding-right: 20px;
+padding-left: 20px;
+padding-top: -20px;
+width: 200px;
+color:#484848 ;
+}
+
+a:hover{
+color:grey;
+}
+
+a{
+color:#484848 ;
+text-decoration: none;
+}
+
+
+
+#ingredient{
+font-size:22px;
+}
+
+
+#tablerecipe{
+table-layout: fixed;
+}
+
+#leftrecipe{
+width: 300px;
+height: 400px;
+text-align: left;
+table-layout: fixed;
+
+}
+
+#indexrecipeimg{
+background-image:url('ricetta.png');
+background-size:510px 420px;
+background-repeat:no-repeat;
+width: 600px;
+table-layout: fixed;
+font-size:20px;
+
+}
+
+
+
+#tablenewrecipe{
+table-layout: fixed;
+}
+
+#newrecipe{
+width: 300px;
+height: 400px;
+text-align: left;
+table-layout: fixed;
+
+}
+
+#newrecipeimage{
+background-image:url('ricetta.png');
+background-size:510px 420px;
+background-repeat:no-repeat;
+width: 600px;
+table-layout: fixed;
+font-size:20px;
+
+}
+#pStyle{
+margin-top: 0em;
+margin-bottom: -1em;
+}
+#explorer
+ {
+font-size: 18px;
+align: left;
+height:150px;
+width: 450px;
+table-layout: fixed;
+}
+
+#links{
+background-image:url('menudef.png');
+background-size: 230px 140px;
+background-repeat:no-repeat; 
+color:#484848 ;
+text-align: center;
+}
+
+#menuPrincipal{
+text-align: left;
+font-size: 18px;
+height:150px;
+width: 450px;
+}
+
+#footer{
+font-size:12px;
+}
+
+<style type="text/css">
+#table-4 {
+	background-color: whiteSmoke;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	background-position:absolute;
+	
+	
+}
+#table-4 td, #table-4 th {
+}
+#table-4 th {
+	color: #333;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+	text-align: left;
+	padding: 3px;
+	border-width: thin;
+	padding: 3px;
+	border-style: dotted;
+	border-color: black;
+	background-color: white;
+	-moz-border-radius: ;
+}
+#table-4 td {
+	padding: 0 20px;
+	line-height: 20px;
+	color: #0084B4;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	border-bottom: 10px solid #fff;
+	border-top: 10px solid #fff;
+}
+#table-4 td:hover {
+	background-color: #fff;
+	border-width: thin;
+	padding: 3px;
+	border-style: dotted;
+	border-color: black;
+	-moz-border-radius: ;
+	
+}
+#table-4 {
+	border-width: thick;
+	border-spacing: 1px;
+	border-style: groove;
+	border-color: gray;
+	border-collapse: separate;
+	background-color: white;
+}
+
+</style>

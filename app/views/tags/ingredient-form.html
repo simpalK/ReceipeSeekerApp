@@ -1,24 +1,36 @@
 <p>
 #{field 'nameIng'}
-   	<label for="name">Ingredient Name</label>
+	<table id"tablenewingredient" >
+   		<tr>
+   			<th id="newingredient">
+   	<label for="name">Ingredient Name</label><br>
     <input type="text" name="${field.name}" id="nameIng" autofocus="autofocus" value="#{ifErrors}${flash.nameIng}#{/ifErrors}#{else}${_ingredient?.nameIng}#{/else}"/>
 #{/field}
 </p>
-<p>
+<p id="unitcss">
 #{field 'unit'}
 <label for="name">Unit</label>
 <p>
+<input type="radio" name="${field.name}" id="unit" value="kg">Grams <br/>
 <input type="radio" name="${field.name}" id="unit" value="kg">Kilogram <br/>
 <input type="radio" name="${field.name}" id="unit" value="lt">Liters <br/>
 <input type="radio" name="${field.name}" id="unit" value="number">Number <br/>
+<input type="radio" name="${field.name}" id="unit" value="lt">Pieces <br/>
+<input type="radio" name="${field.name}" id="unit" value="lt">Spoons <br/>
+
 </p>
 #{/field}
 </p>
 
+<br/>
+<input type="reset" value="Reset" id="buttonReset"/>&nbsp;&nbsp;   <input type="submit" value="Add your ingredient!" id="buttonAddIngr"/>
+						
+</th>
 
-<p class="button">
-	<input type="submit" value="Add your ingredient" />
-</p>
-<p class="button">
-	<input type="reset" value="Reset" />
-</p>
+<th id="newingrimage">
+
+</th>
+
+</tr>
+
+</table>

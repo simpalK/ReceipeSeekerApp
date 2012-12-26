@@ -1,0 +1,297 @@
+#{set 'moreStyles'}
+	<link rel="stylesheet" href="@{'/public/stylesheets/ingredient.css'}" type="text/css" media="screen" charset="${_response_encoding}">
+#{/set}
+<script type="text/javascript" src="/public/javascripts/jquery-1.5.2.min.js"></script>
+
+
+</HEAD>
+<BODY>
+<FORM>
+<span id="fooBar">&nbsp;</span>
+ 
+		<p> Please choose your desired ingredients from the left basket to the right one!<br /></p>
+<p>To confirm your ingredients click first on "Ok, I've chosen the ingredients!" and then "Click here to start Searching"! <br /></p>
+	
+<table id="tableSearch">
+<tr><th id="leftSearch">
+	
+	#{if _ingredients.size() > 0}
+			<select id="ingList1" name=mytextarea size=15 multiple>		
+			#{list items:_ingredients, as:'ingredient'}
+             <option name="@{Ingredients.show(ingredient.id)}" value=${ingredient.id} > ${ingredient.toString()} </option>
+			#{/list}
+			</select>
+	#{/if}
+	#{else}
+		<div class="empty">
+	       	There are no ingredients.
+	   	</div>
+	#{/else}
+	</th>
+	<th id="leftSearch">
+		<p class="button">
+			<input type="button" id="addButt" value=">>" onclick="addToBasket();" />
+		</p>
+		
+		<p class="button">
+			<input type="button" id="removeButt" value="<<" onclick="removeFromBasket();"/>
+		</p>
+		
+		<script>
+		var element="";
+		var listAct1 ="ingList1";
+		var listAct2 = "ingList2";
+		var counter=0;
+		var newWindow;
+		// array to store the basket elements
+		var basketElements= new Array();
+		var ingQuantity = new Array();
+		
+		
+		function saveIngRec(){
+			var quantElement;
+			var nameElement;
+			var display="";
+			var dis;
+			var recIngNam;
+			var recIngQuant;
+			var action;
+			var selectedElement = document.getElementById('ingList2');
+			var selectedElement1 = document.getElementById('nameIng1');
+			var selectedElement2 = document.getElementById('nameIng2');
+			var selectedElement3 = document.getElementById('nameIng3');
+			var selectedElement4 = document.getElementById('nameIng4');
+			
+			var selectedElement5 = document.getElementById('nameIng5');
+			var selectedElement6 = document.getElementById('nameIng6');
+			var selectedElement7 = document.getElementById('nameIng7');
+			var selectedElement8 = document.getElementById('nameIng8');
+			
+			
+			var selectedElement9 = document.getElementById('nameIng9');
+			var selectedElement10 = document.getElementById('nameIng10');
+			
+			selectedElement1.setAttribute("value",selectedElement.options[0].value);
+			selectedElement2.setAttribute("value",selectedElement.options[1].value);
+			selectedElement3.setAttribute("value",selectedElement.options[2].value);
+			selectedElement4.setAttribute("value",selectedElement.options[3].value);
+			
+			selectedElement5.setAttribute("value",selectedElement.options[4].value);
+			selectedElement6.setAttribute("value",selectedElement.options[5].value);
+			selectedElement7.setAttribute("value",selectedElement.options[6].value);
+			selectedElement8.setAttribute("value",selectedElement.options[7].value);
+			
+			selectedElement9.setAttribute("value",selectedElement.options[8].value);
+			selectedElement10.setAttribute("value",selectedElement.options[9].value);
+			
+		}
+		
+		
+		function addToBasket()
+		{
+  			var selectedElement = document.getElementById('ingList1');
+  			
+  			
+  			var temp;
+  			//var selectedElement1 = document.getElementById('nameIng1');
+  			
+  			var i;
+  			for (i = selectedElement.length - 1; i>=0; i--) {
+    			if (selectedElement.options[i].selected) {
+    				temp=selectedElement.options[i];
+    				basketElements[i]=selectedElement.options[i];
+    				//add('0',selectedElement.options[i].value);
+    				//selectedElement1.setAttribute("value",selectedElement.options[i].value);
+    				//ingQuantity.push(selectedElement.options[i].value));
+    				counter++;
+    				passToBasket(selectedElement.options[i],listAct2);
+    				
+      				selectedElement.remove(i);
+    			}
+  			}
+  			
+		}
+		
+		function passToBasket(element,listAct)
+		{
+			var newElement = document.createElement('option');
+			
+  			newElement.text = element.text;
+  			newElement.value = element.value;
+			  
+			var passedElement = document.getElementById(listAct);
+			try {
+			    passedElement.add(newElement, null); 
+			  }
+			catch(ex) {
+			    passedElement.add(newElement); 
+ 			 }
+		}
+		
+		function removeFromBasket()
+		{
+			var selectedElement = document.getElementById('ingList2');
+  			var i;
+  			for (i = selectedElement.length - 1; i>=0; i--) {
+    			if (selectedElement.options[i].selected) {
+    				passToBasket(selectedElement.options[i],listAct1);
+    				counter--;
+    				removeinText(selectedElement.options[i].value);
+    				//ingQuantity.remove(selectedElement.options[i].value);
+      				selectedElement.remove(i);
+      				
+      				
+    			}
+  			}
+		}
+		function removeinText(valueSelected){
+			var selectedElement1 = document.getElementById('nameIng1');
+			var selectedElement2 = document.getElementById('nameIng2');
+			var selectedElement3 = document.getElementById('nameIng3');
+			var selectedElement4 = document.getElementById('nameIng4');
+			var selectedElement5 = document.getElementById('nameIng5');
+			var selectedElement6 = document.getElementById('nameIng6');
+			var selectedElement7 = document.getElementById('nameIng7');
+			var selectedElement8 = document.getElementById('nameIng8');
+			var selectedElement9 = document.getElementById('nameIng9');
+			var selectedElement10 = document.getElementById('nameIng10');
+			
+			
+			
+			if(valueSelected == selectedElement1.getAttribute("value")){
+				selectedElement1.setAttribute("value","None");
+			}
+			if(valueSelected == selectedElement2.getAttribute("value")){
+				selectedElement2.setAttribute("value","None");
+			}
+			if(valueSelected == selectedElement3.getAttribute("value")){
+				selectedElement3.setAttribute("value","None");
+			}
+			if(valueSelected == selectedElement4.getAttribute("value")){
+				selectedElement4.setAttribute("value","None");
+			}
+			if(valueSelected == selectedElement5.getAttribute("value")){
+				selectedElement5.setAttribute("value","None");
+			}
+			if(valueSelected == selectedElement6.getAttribute("value")){
+				selectedElement6.setAttribute("value","None");
+			}
+			if(valueSelected == selectedElement7.getAttribute("value")){
+				selectedElement7.setAttribute("value","None");
+			}
+			if(valueSelected == selectedElement8.getAttribute("value")){
+				selectedElement8.setAttribute("value","None");
+			}
+			if(valueSelected == selectedElement9.getAttribute("value")){
+				selectedElement9.setAttribute("value","None");
+			}
+			if(valueSelected == selectedElement10.getAttribute("value")){
+				selectedElement10.setAttribute("value","None");
+			}
+			
+		}
+		function add(type,ingNam) {
+			var element;
+			var element1;
+			var foo;
+  			var i;
+  			
+		
+		    element = document.createElement("input");
+		     element1 = document.createElement('label');
+		 
+		    //Assign different attributes to the element.
+		    element.setAttribute("type", type);
+		    element.setAttribute("value", type);
+		    element.setAttribute("name", ingNam);
+		    element.setAttribute("id", "input"+ counter.toString());
+		 
+		    element1=document.createTextNode(ingNam);
+		 //   element1.setAttribute("id", "label"+ counter.toString());
+		   foo = document.getElementById("fooBar");
+		 
+		    //Append the element in page (in span).
+		     foo.appendChild(element1);
+		    foo.appendChild(element);
+		 
+		}
+
+		
+		</script>
+		
+	</th>
+	<th id="leftSearch">
+		<select id="ingList2" name=mytextarea size=15 multiple>
+	
+		</select>
+			
+	</th>
+	
+	<!--<th>-->
+
+	<!--</th>-->
+</tr>
+
+
+</th><th id="searchImg">
+	
+	</th>
+	</td>
+	</table>
+	
+	<input type="button" value="Ok, I choose the ingredients!" id="buttonAddIngr1" onclick="saveIngRec()"/><br/><br/>
+	<input type="submit" value="Click here to start Searching" id="searchButton"/>
+
+<br/> 
+
+<p>
+#{field 'nameIng1'}
+   	
+    <input type="hidden" name="${field.name}" id="nameIng1"  />
+#{/field}
+</p>
+<p>
+   	
+    <input type="hidden" name="nameIng2" id="nameIng2" />
+
+</p>
+<p>
+#{field 'nameIng3'}
+    <input type="hidden" name="${field.name}" id="nameIng3" />
+#{/field}
+</p>
+<p>
+#{field 'nameIng4'}
+    <input type="hidden" name="${field.name}" id="nameIng4" />
+#{/field}
+</p>
+<p>
+#{field 'nameIng5'}
+    <input type="hidden" name="${field.name}" id="nameIng5" />
+#{/field}
+</p>
+<p>
+#{field 'nameIng6'}
+    <input type="hidden" name="${field.name}" id="nameIng6" />
+#{/field}
+</p>
+<p>
+#{field 'nameIng7'}
+    <input type="hidden" name="${field.name}" id="nameIng7" />
+#{/field}
+</p>
+<p>
+#{field 'nameIng8'}
+    <input type="hidden" name="${field.name}" id="nameIng8" />
+#{/field}
+</p>
+<p>
+#{field 'nameIng9'}
+    <input type="hidden" name="${field.name}" id="nameIng9" />
+#{/field}
+</p>
+<p>
+#{field 'nameIng10'}
+    <input type="hidden" name="${field.name}" id="nameIng10" />
+#{/field}
+</p>

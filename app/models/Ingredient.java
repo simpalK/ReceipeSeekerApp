@@ -25,12 +25,14 @@ import org.joda.time.Days;
 
 import play.db.jpa.JPA;
 import play.data.validation.Required;
+import play.data.validation.*;
 import play.db.jpa.Model;
 @Entity
 @Table(name="Ingredient")
 public class Ingredient extends Model {
 	
-	@Required
+
+	@Column(unique = true )
 	public String nameIng;
 	
 	@Required 
